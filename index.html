@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
 <title>Hotel Jagdamba Family Restaurant & Dhaba</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@500;600;700;800&family=Hind:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@500;600;700;800&family=Hind:wght@500;600;700&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -15,14 +15,41 @@
 body{margin:0;background:#000;color:#fff;font-family:'Montserrat','Hind',sans-serif;padding-bottom:110px}
 button,input,select{font-family:inherit}
 :focus-visible{outline:2px solid var(--gl);outline-offset:2px}
-.hero{text-align:center;padding:calc(env(safe-area-inset-top,0px) + 46px) 16px 38px;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.7) 60%,#000),url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1200&q=70') center/cover;border-bottom:2px solid var(--gold);border-radius:0 0 30px 30px}
-.hero h1{font-family:'Cinzel',serif;font-size:30px;line-height:1.15;margin:12px 0 0;letter-spacing:2px;background:var(--g);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.sub{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;color:var(--gl);font-size:12px;font-weight:700;letter-spacing:4px}
-.sub i{height:1px;width:34px;background:var(--gold)}
-.tagline{color:#e6d9a8;font-size:14px;margin-top:10px;font-weight:600}
-.tbl{display:none;margin:14px auto 0;width:max-content;padding:6px 18px;border-radius:30px;border:1px solid var(--gold);color:var(--gl);font-weight:700}
-.sticky{position:sticky;top:0;z-index:50;background:#000;padding:12px 14px 8px}
+
+/* ===== PREMIUM HERO ===== */
+.hero{position:relative;text-align:center;overflow:hidden;padding:calc(env(safe-area-inset-top,0px) + 34px) 16px 46px;
+  background:
+   radial-gradient(ellipse at 50% 0%,rgba(252,246,186,.20),transparent 62%),
+   linear-gradient(180deg,rgba(0,0,0,.50),rgba(0,0,0,.78) 62%,#000),
+   url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1200&q=70') center/cover;
+  border-bottom:2px solid var(--gold);border-radius:0 0 42px 42px;box-shadow:0 16px 46px rgba(201,162,74,.28)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.12;
+  background-image:repeating-linear-gradient(45deg,var(--gold) 0 1px,transparent 1px 26px),repeating-linear-gradient(-45deg,var(--gold) 0 1px,transparent 1px 26px)}
+.hero::after{content:"";position:absolute;inset:10px;border:1px solid rgba(201,162,74,.5);border-radius:0 0 34px 34px;border-top:0;pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.crest{width:104px;height:104px;margin:0 auto;position:relative;filter:drop-shadow(0 6px 20px rgba(201,162,74,.5))}
+.crest svg{width:100%;height:100%;display:block}
+.crest .ring{transform-origin:50% 50%;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero h1{font-family:'Cinzel',serif;font-size:34px;line-height:1.1;margin:16px 0 0;letter-spacing:3px;font-weight:900;
+  background:linear-gradient(100deg,#8a6420 0%,#bf953f 20%,#fffbd0 45%,#bf953f 60%,#aa771c 100%);background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 3px 10px rgba(0,0,0,.8));animation:shine 3.2s ease-out 1 both}
+@keyframes shine{from{background-position:120% 0}to{background-position:0 0}}
+.sub{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px;color:var(--gl);font-size:12px;font-weight:700;letter-spacing:4px}
+.sub i{height:1px;width:34px;background:linear-gradient(90deg,transparent,var(--gold))}
+.sub i:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+.orn{display:flex;align-items:center;justify-content:center;gap:10px;margin:14px auto 0;width:210px}
+.orn s{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.orn b{width:9px;height:9px;background:var(--gl);transform:rotate(45deg);box-shadow:0 0 12px var(--gold)}
+.tagline{font-family:'Hind',serif;color:#f0e2ad;font-size:19px;margin-top:12px;font-weight:700;letter-spacing:.5px;text-shadow:0 2px 12px rgba(0,0,0,.9)}
+.pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.pills span{padding:7px 14px;border-radius:30px;border:1px solid rgba(201,162,74,.65);background:rgba(0,0,0,.55);color:var(--gl);font-size:12.5px;font-weight:700;font-family:'Hind',sans-serif;backdrop-filter:blur(4px)}
+.tbl{display:none;margin:16px auto 0;width:max-content;padding:7px 22px;border-radius:30px;background:var(--g);color:#000;font-weight:800;box-shadow:0 4px 18px rgba(201,162,74,.4)}
+
+.sticky{position:sticky;top:0;z-index:50;background:#000;padding:12px 14px 8px;border-bottom:1px solid #1a1a1a}
 .search{width:100%;padding:13px 16px;border-radius:14px;border:1.5px solid #2c2c2c;background:#101010;color:#fff;font-size:15px;margin-bottom:10px}
+.search:focus{border-color:var(--gold)}
 .types{display:flex;gap:8px;margin-bottom:10px}
 .tb{flex:1;padding:9px;border-radius:30px;border:1.5px solid #333;background:#111;color:#bbb;font-weight:800;font-size:12px;cursor:pointer;display:flex;gap:6px;align-items:center;justify-content:center}
 .tb b{width:10px;height:10px;border-radius:2px}
@@ -31,9 +58,10 @@ button,input,select{font-family:inherit}
 .cats{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}.cats::-webkit-scrollbar{display:none}
 .chip{padding:9px 18px;border-radius:30px;border:1px solid #333;background:#111;color:#bbb;font-weight:700;font-size:13px;white-space:nowrap;cursor:pointer}
 .chip.on{background:var(--g);color:#000;border-color:transparent}
-.sec{font-family:'Cinzel',serif;color:var(--gl);font-size:19px;margin:22px 16px 4px;letter-spacing:1px}
-.item{display:flex;gap:14px;background:var(--box);margin:12px 14px;border-radius:18px;border:1px solid var(--ln);padding:13px;align-items:center}
-.item img{width:84px;height:84px;border-radius:13px;object-fit:cover;border:1px solid #333;background:#111;flex:none}
+.sec{font-family:'Cinzel',serif;color:var(--gl);font-size:20px;margin:26px 16px 4px;letter-spacing:1.5px;display:flex;align-items:center;gap:12px}
+.sec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.item{display:flex;gap:14px;background:linear-gradient(135deg,#131108,#0a0a0a 55%);margin:12px 14px;border-radius:18px;border:1px solid #2e2815;border-left:3px solid var(--gold);padding:13px;align-items:center;box-shadow:0 6px 20px rgba(0,0,0,.6)}
+.item img{width:88px;height:88px;border-radius:14px;object-fit:cover;border:1.5px solid var(--gold);background:#111;flex:none}
 .inf{flex:1;min-width:0}
 .name{font-weight:800;font-size:16px;line-height:1.25}
 .vd{display:inline-grid;place-items:center;width:14px;height:14px;border:1.5px solid var(--veg);border-radius:3px;margin-right:6px;vertical-align:-1px}
@@ -51,9 +79,10 @@ button,input,select{font-family:inherit}
 .vr{margin-top:8px}.pt{font-size:13px;color:#cfc8b8;font-weight:600}
 .empty{text-align:center;color:#777;padding:44px 20px}
 .sk{height:110px;margin:12px 14px;border-radius:18px;background:linear-gradient(90deg,#101010 25%,#1a1a1a 50%,#101010 75%);background-size:200% 100%;animation:sh 1.3s infinite}@keyframes sh{to{background-position:-200% 0}}
-.call{margin:28px 14px;padding:22px;text-align:center;border:1px solid var(--gold);border-radius:20px;background:var(--box)}
-.call h3{font-family:'Cinzel',serif;margin:0 0 14px;color:var(--gl)}
-.call a{display:block;background:var(--g);color:#000;font-weight:800;padding:14px;border-radius:40px;text-decoration:none}
+.call{margin:28px 14px;padding:24px 22px;text-align:center;border:1.5px solid var(--gold);border-radius:22px;background:radial-gradient(ellipse at 50% 0%,rgba(201,162,74,.16),transparent 70%),var(--box)}
+.call h3{font-family:'Hind',sans-serif;margin:0 0 14px;color:var(--gl);font-size:19px}
+.call a{display:block;background:var(--g);color:#000;font-weight:800;padding:14px;border-radius:40px;text-decoration:none;box-shadow:0 6px 20px rgba(201,162,74,.35)}
+.call a+a{margin-top:10px}
 .bar{position:fixed;left:14px;right:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);height:64px;background:var(--g);color:#000;border-radius:18px;display:none;align-items:center;justify-content:space-between;padding:0 22px;font-weight:800;z-index:90;cursor:pointer;box-shadow:0 8px 30px rgba(201,162,74,.35);animation:rise .3s ease}
 @keyframes rise{from{transform:translateY(30px);opacity:0}}
 .bar small{display:block;font-size:12px;font-weight:700;opacity:.75}.bar b{font-size:21px}
@@ -108,10 +137,20 @@ td{padding:9px 4px;border-bottom:1px dashed rgba(255,255,255,.1);font-weight:600
 <body>
 
 <header class="hero">
-  <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#000" stroke="#c9a24a" stroke-width="2.5"/><circle cx="32" cy="32" r="24" fill="none" stroke="#c9a24a" stroke-width=".8"/><text x="32" y="40" text-anchor="middle" font-family="Cinzel,serif" font-weight="900" font-size="22" fill="#fcf6ba">HJ</text></svg>
+  <div class="crest">
+    <svg viewBox="0 0 104 104" aria-hidden="true">
+      <defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fcf6ba"/><stop offset=".5" stop-color="#bf953f"/><stop offset="1" stop-color="#aa771c"/></linearGradient></defs>
+      <circle class="ring" cx="52" cy="52" r="49" fill="none" stroke="url(#gg)" stroke-width="2" stroke-dasharray="2 5" stroke-linecap="round"/>
+      <circle cx="52" cy="52" r="42" fill="#050505" stroke="url(#gg)" stroke-width="3"/>
+      <circle cx="52" cy="52" r="36" fill="none" stroke="url(#gg)" stroke-width=".9"/>
+      <text x="52" y="62" text-anchor="middle" font-family="Cinzel,serif" font-weight="900" font-size="31" fill="url(#gg)">HJ</text>
+    </svg>
+  </div>
   <h1>Hotel Jagdamba</h1>
   <div class="sub"><i></i>FAMILY RESTAURANT & DHABA<i></i></div>
+  <div class="orn"><s></s><b></b><s></s></div>
   <div class="tagline">स्वाद जो दिल जीत ले</div>
+  <div class="pills"><span>🍽️ डाइन-इन</span><span>🛵 होम डिलीवरी</span><span>📲 UPI पेमेंट</span></div>
   <div class="tbl" id="tbl"></div>
 </header>
 
@@ -127,7 +166,7 @@ td{padding:9px 4px;border-bottom:1px dashed rgba(255,255,255,.1);font-weight:600
 
 <main id="menu"><div class="sk"></div><div class="sk"></div><div class="sk"></div></main>
 
-<section class="call"><h3>कोई ख़ास रिक्वेस्ट?</h3><a id="callBtn" href="#">होटल जगदंबा को कॉल करें</a></section>
+<section class="call"><h3>होटल से जुड़ें / कोई मदद चाहिए?</h3><a id="callBtn0" href="#"></a><a id="callBtn1" href="#"></a></section>
 
 <div class="bar" id="bar"><div><small id="bc"></small><b id="bt">₹0</b></div><span>ऑर्डर देखें ›</span></div>
 
@@ -166,17 +205,15 @@ td{padding:9px 4px;border-bottom:1px dashed rgba(255,255,255,.1);font-weight:600
   <p class="locst" id="locSt"></p>
   <button class="back" id="retryLoc" style="display:none">📍 लोकेशन दोबारा लें</button>
   <button class="go wa" id="sendWA0" data-i="0"></button>
-  <button class="go wa" id="sendWA1" data-i="1"></button>
-  <p class="locst">ऑर्डर दोनों नंबर पर पहुँचाने के लिए ऊपर के दोनों हरे बटन बारी-बारी से दबाएँ (WhatsApp एक बार में एक ही नंबर खोलता है)।</p>
   <button class="go alt" id="dlPdf">बिल PDF डाउनलोड करें</button>
   <button class="back" id="editOrder">ऑर्डर बदलें</button>
 </div></div>
 
 <div class="ov top" id="halfOv"><div class="sheet pop">
-  <h2>⚠️ Half प्लेट की होम डिलीवरी नहीं होती</h2>
-  <p>होम डिलीवरी सिर्फ़ <b>Full प्लेट</b> पर उपलब्ध है। नीचे दिए Half आइटम डिलीवरी के लिए मान्य नहीं हैं। कृपया इन्हें हटाकर Full चुनें, या "होटल में" ऑर्डर करें।</p>
+  <h2>⚠️ अकेली 1 Half प्लेट की होम डिलीवरी नहीं होती</h2>
+  <p>होम डिलीवरी के लिए सिर्फ़ 1 Half प्लेट काफ़ी नहीं है। कृपया कोई दूसरा आइटम (Half या Full) जोड़ें, या "होटल में" ऑर्डर करें।</p>
   <ul id="halfList"></ul>
-  <button class="go" id="hDel">Half आइटम हटाएँ</button>
+  <button class="go" id="hAdd">➕ और आइटम जोड़ें</button>
   <button class="go alt" id="hDine">🍽️ होटल में ऑर्डर करें</button>
   <button class="back" id="hBack">वापस जाएँ</button>
 </div></div>
@@ -195,8 +232,9 @@ td{padding:9px 4px;border-bottom:1px dashed rgba(255,255,255,.1);font-weight:600
 /* ===== SETTINGS ===== */
 const SHEET="https://docs.google.com/spreadsheets/d/1oHvoI-9h5rkgcrmlrSXAIO05UxIRBHwhDT2bMtUSMKo/export?format=csv";
 const SHEET2="https://docs.google.com/spreadsheets/d/1oHvoI-9h5rkgcrmlrSXAIO05UxIRBHwhDT2bMtUSMKo/gviz/tq?tqx=out:csv"; /* backup link */
-const WA_NOS=["918700176034","919955163311"]; /* order dono WhatsApp numbers par bheja jayega */
-const CALL_NO="8700176034";
+const WA_NOS=["918700176034"]; /* order sirf is WhatsApp number par jayega */
+const CALL_NOS=["8700176034","9955163311"]; /* call / help / bill par dono number */
+const fmt=n=>n.slice(0,5)+" "+n.slice(5);
 const UPI_ID="Q334332463@ybl";
 const UPI_NAME="Hotel Jagdamba";
 const GST_PCT=0, DELIVERY_FEE=0, FREE_DELIVERY_ABOVE=0;
@@ -204,11 +242,12 @@ const GST_PCT=0, DELIVERY_FEE=0, FREE_DELIVERY_ABOVE=0;
 const $=id=>document.getElementById(id);
 const dn=i=>i.name+(i.portion&&i.portion!=="Regular"?" ("+i.portion+")":"");
 const isHalf=i=>/half|आधा/i.test(i.portion||"");
-const halfIds=()=>Object.keys(cart).filter(k=>items[k]&&isHalf(items[k]));
+/* Rule: delivery sirf tab block hogi jab cart me AKELI 1 half plate ho.
+   Half + koi aur item (half ya full) ho, ya 2+ half ho, to delivery chalegi. */
+const lonelyHalf=()=>{const k=Object.keys(cart);return(k.length===1&&cart[k[0]]===1&&items[k[0]]&&isHalf(items[k[0]]))?k[0]:null};
 const waLabel=n=>n.slice(2,7)+" "+n.slice(7);
 function sig(){let h=0;const t=items.map(i=>i.name+i.portion+i.price).join("|");for(let k=0;k<t.length;k++)h=(h*31+t.charCodeAt(k))|0;return String(h)}
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const PH="data:image/svg+xml;utf8,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="84" height="84"><rect width="84" height="84" fill="#111"/><text x="42" y="54" font-size="32" text-anchor="middle">🍛</text></svg>');
 let items=[],cart={},cat="All",type="all",mode="Dining",pay="UPI",order=null;
 const P=new URLSearchParams(location.search);
 
@@ -254,8 +293,8 @@ function sub(){let t=0,c=0;for(const k in cart){if(!items[k]||items[k].sold){del
 function bill(){const{t}=sub();const gst=Math.round(t*GST_PCT/100);const del=(mode==="Delivery"&&t>0&&DELIVERY_FEE&&!(FREE_DELIVERY_ABOVE&&t>=FREE_DELIVERY_ABOVE))?DELIVERY_FEE:0;return{sub:t,gst,del,grand:t+gst+del}}
 function sync(){const{t,c}=sub();$("bar").style.display=c?"flex":"none";$("bc").textContent=c+" आइटम";$("bt").textContent="₹"+t;$("sub").textContent="₹"+t;try{localStorage.setItem("jd_cart",JSON.stringify(cart));localStorage.setItem("jd_sig",sig())}catch(e){}}
 function change(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];render();sync();if($("cartOv").classList.contains("open"))lines()}
-function lines(){const k=Object.keys(cart);if(!k.length){$("cartOv").classList.remove("open");return}$("lines").innerHTML=k.map(i=>`<div class="ln"><span>${esc(dn(items[i]))}${mode==="Delivery"&&isHalf(items[i])?'<small class="tg">होम डिलीवरी में नहीं मिलेगा</small>':""}</span><span class="c">₹${items[i].price*cart[i]} <button data-q="${i}" data-d="-1">−</button> ${cart[i]} <button data-q="${i}" data-d="1">+</button></span></div>`).join("");sync()}
-function setMode(m){mode=m;document.querySelectorAll("#modeSeg button").forEach(b=>b.classList.toggle("on",b.dataset.m===m));$("info").placeholder=m==="Dining"?"टेबल नंबर":"पूरा पता (Address)";$("mHint").textContent=m==="Delivery"?"🛵 होम डिलीवरी सिर्फ़ Full प्लेट पर मिलेगी। ऑर्डर बनाते समय आपकी लोकेशन ली जाएगी ताकि डिलीवरी में आसानी हो।":"ऑर्डर बनाते समय आपकी लोकेशन ली जाएगी (अनुमति देने पर)।";if($("cartOv").classList.contains("open"))lines()}
+function lines(){const k=Object.keys(cart);if(!k.length){$("cartOv").classList.remove("open");return}const lh=mode==="Delivery"?lonelyHalf():null;$("lines").innerHTML=k.map(i=>`<div class="ln"><span>${esc(dn(items[i]))}${lh===i?'<small class="tg">अकेली 1 Half प्लेट की होम डिलीवरी नहीं होगी — कोई और आइटम जोड़ें</small>':""}</span><span class="c">₹${items[i].price*cart[i]} <button data-q="${i}" data-d="-1">−</button> ${cart[i]} <button data-q="${i}" data-d="1">+</button></span></div>`).join("");sync()}
+function setMode(m){mode=m;document.querySelectorAll("#modeSeg button").forEach(b=>b.classList.toggle("on",b.dataset.m===m));$("info").placeholder=m==="Dining"?"टेबल नंबर":"पूरा पता (Address)";$("mHint").textContent=m==="Delivery"?"🛵 होम डिलीवरी के लिए अकेली 1 Half प्लेट काफ़ी नहीं है — साथ में कोई और आइटम जोड़ें। ऑर्डर बनाते समय आपकी लोकेशन ली जाएगी ताकि डिलीवरी में आसानी हो।":"ऑर्डर बनाते समय आपकी लोकेशन ली जाएगी (अनुमति देने पर)।";if($("cartOv").classList.contains("open"))lines()}
 
 /* ===== Location ===== */
 function getLoc(){return new Promise(res=>{if(!navigator.geolocation)return res({err:0});navigator.geolocation.getCurrentPosition(p=>res({lat:p.coords.latitude,lng:p.coords.longitude,acc:p.coords.accuracy}),e=>res({err:e.code||2}),{enableHighAccuracy:true,timeout:12000,maximumAge:0})})}
@@ -263,21 +302,21 @@ const hasLoc=()=>order&&order.loc&&order.loc.lat!=null;
 const mapLink=()=>"https://www.google.com/maps?q="+order.loc.lat.toFixed(6)+","+order.loc.lng.toFixed(6);
 function showLoc(){const s=$("locSt");if(hasLoc()){s.className="locst";s.textContent="📍 आपकी लोकेशन मिल गई ✔ (±"+Math.round(order.loc.acc)+" मीटर)";$("retryLoc").style.display="none"}else{s.className="locst bad";s.textContent=(order.loc&&order.loc.err===1?"⚠️ लोकेशन की अनुमति नहीं मिली। ":"⚠️ लोकेशन नहीं मिल पाई। ")+"ब्राउज़र में लोकेशन \"Allow\" और GPS ON करके दोबारा लें — इससे डिलीवरी में आसानी होगी।";$("retryLoc").style.display="block"}}
 
-/* ===== Half popup (home delivery) ===== */
-function showHalf(){$("halfList").innerHTML=halfIds().map(k=>`<li>${esc(dn(items[k]))} × ${cart[k]}</li>`).join("");$("halfOv").classList.add("open")}
+/* ===== Single half plate popup (home delivery) ===== */
+function showHalf(){const k=lonelyHalf();$("halfList").innerHTML=k?`<li>${esc(dn(items[k]))} × ${cart[k]}</li>`:"";$("halfOv").classList.add("open")}
 
 async function makeBill(){
   const name=$("nm").value.trim(),info=$("info").value.trim(),ph=$("ph").value.trim();
   if(!name||!info){$("err").textContent="कृपया नाम और "+(mode==="Dining"?"टेबल नंबर":"पता")+" भरें।";return}
   if(mode==="Delivery"&&ph.replace(/\D/g,"").length<10){$("err").textContent="सही मोबाइल नंबर डालें।";return}
-  if(mode==="Delivery"&&halfIds().length){$("err").textContent="";lines();showHalf();return}
+  if(mode==="Delivery"&&lonelyHalf()){$("err").textContent="";lines();showHalf();return}
   $("err").textContent="";
   const mb=$("mkBill");mb.disabled=true;mb.textContent="लोकेशन ली जा रही है…";
   const loc=await getLoc();
   mb.disabled=false;mb.textContent="बिल बनाएँ ›";
   const d=new Date();
   order={id:"JD"+String(d.getTime()).slice(-6),name,info,ph,mode,date:d.toLocaleDateString("en-IN"),loc,sent:{},msg:null};
-  $("bph").textContent="📞 "+CALL_NO;
+  $("bph").textContent="📞 "+CALL_NOS.map(fmt).join("  |  ");
   $("meta").innerHTML=`<div><span>ऑर्डर नं.</span><b>${order.id}</b></div><div><span>तारीख</span><b>${order.date}</b></div><div><span>ग्राहक</span><b>${esc(name)}</b></div><div><span>${mode==="Dining"?"टेबल":"प्रकार"}</span><b>${mode==="Dining"?esc(info):"Delivery"}</b></div>${mode==="Delivery"?`<div style="grid-column:1/-1"><span>पता</span><b>${esc(info)}</b></div>`:""}`;
   $("bbody").innerHTML=Object.keys(cart).map(k=>{const i=items[k];return`<tr><td><span class="dt" style="background:${i.nv?"#ff3b3b":"#00c853"}"></span>${esc(dn(i))}</td><td>${cart[k]}</td><td>₹${i.price}</td><td>₹${i.price*cart[k]}</td></tr>`}).join("");
   const B=bill();
@@ -297,7 +336,7 @@ function setPay(p){
   if(u){$("qrimg").innerHTML="";new QRCode($("qrimg"),{text:upiLink(),width:130,height:130,correctLevel:QRCode.CorrectLevel.M});$("upiApp").href=upiLink()}
   order.msg=null;
 }
-function resetWA(){WA_NOS.forEach((n,i)=>{const b=$("sendWA"+i);b.classList.remove("done");b.textContent="WhatsApp पर भेजें · "+waLabel(n)});$("editOrder").textContent="ऑर्डर बदलें"}
+function resetWA(){WA_NOS.forEach((n,i)=>{const b=$("sendWA"+i);b.classList.remove("done");b.textContent="WhatsApp पर ऑर्डर भेजें · "+waLabel(n)});$("editOrder").textContent="ऑर्डर बदलें"}
 function buildMsg(){
   const B=bill();let L="";for(const k in cart){const i=items[k];L+=`${i.nv?"🔴":"🟢"} *${dn(i)}* (x${cart[k]}) - ₹${i.price*cart[k]}\n`}
   const loc=hasLoc()?`📍 *लोकेशन:* ${mapLink()} (±${Math.round(order.loc.acc)} मी.)\n`:`📍 *लोकेशन:* नहीं मिली\n`;
@@ -309,7 +348,7 @@ function sendWA(i){
   window.open("https://wa.me/"+n+"?text="+encodeURIComponent(order.msg),"_blank");
   order.sent[n]=1;const b=$("sendWA"+i);b.classList.add("done");b.textContent="✔ भेजा गया · "+waLabel(n);
   if(first){cart={};sync();render();$("editOrder").textContent="बंद करें"}
-  toast(Object.keys(order.sent).length===WA_NOS.length?"दोनों नंबर पर ऑर्डर भेज दिया ✔":"अब दूसरे नंबर पर भी भेजें");
+  toast("ऑर्डर भेज दिया ✔");
 }
 async function dlPdf(){
   const b=$("dlPdf");b.textContent="बन रहा है…";
@@ -340,10 +379,10 @@ $("dlPdf").onclick=dlPdf;
 $("retryLoc").onclick=async()=>{const b=$("retryLoc");b.textContent="लोकेशन ली जा रही है…";order.loc=await getLoc();order.msg=null;b.textContent="📍 लोकेशन दोबारा लें";showLoc()};
 $("editOrder").onclick=()=>{$("billOv").classList.remove("open");if(order&&Object.keys(order.sent||{}).length)return;lines();$("cartOv").classList.add("open")};
 $("hBack").onclick=()=>$("halfOv").classList.remove("open");
-$("hDel").onclick=()=>{halfIds().forEach(k=>delete cart[k]);$("halfOv").classList.remove("open");sync();render();lines()};
+$("hAdd").onclick=()=>{$("halfOv").classList.remove("open");$("cartOv").classList.remove("open")};
 $("hDine").onclick=()=>{setMode("Dining");$("halfOv").classList.remove("open")};
 $("admMk").onclick=admQR;
-$("callBtn").href="tel:"+CALL_NO;
+CALL_NOS.forEach((n,i)=>{const a=$("callBtn"+i);a.href="tel:"+n;a.textContent="📞 होटल जगदंबा को कॉल करें · "+fmt(n)});
 setMode("Dining");
 if(P.get("table")){$("tbl").style.display="block";$("tbl").textContent="टेबल नं. "+P.get("table");$("info").value=P.get("table")}
 if(P.has("admin")){$("qrOv").classList.add("open");admQR()}
